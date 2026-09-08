@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.workbuddy.riskworkbench",
+        "sha256_cert_fingerprints": ["3F:A2:81:63:D8:B0:C6:D5:B9:8F:C5:48:1A:B4:08:67:0D:07:A9:C2:AD:C2:11:D9:FB:73:60:92:5D:DA:D1:13"]
+      }
+    }]
