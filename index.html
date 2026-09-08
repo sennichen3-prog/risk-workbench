@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f0f7f0" />
+  <title>金融风控建模学习工作台</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-512.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶部区域 -->
+  <header class="topbar" id="topbar">
+    <div class="brand">
+      <div class="brand-text">
+        <div class="brand-name" id="brandName">金融风控建模学习工作台</div>
+        <div class="brand-date" id="brandDate">—</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="env-chip">本地教学环境 · v0.1</span>
+      <span class="net-status" id="netStatus" title="网络状态">
+        <span class="dot" id="netDot"></span><span id="netText">已联网</span>
+      </span>
+      <button class="set-btn" id="gearBtn">设置</button>
+    </div>
+  </header>
+
+  <!-- 主体布局 -->
+  <div class="layout">
+    <!-- 左侧导航抽屉 -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">学习模块</div>
+      <nav class="nav-list" id="navList" aria-label="学习模块导航"><!-- JS 渲染 --></nav>
+      <div class="sidebar-tip">长按条目可拖动排序</div>
+    </aside>
+    <div class="scrim" id="scrim"></div>
+
+    <!-- 主内容 -->
+    <main class="content" id="content" aria-label="主内容区域"><!-- JS 渲染 --></main>
+  </div>
+
+  <!-- 底部全局导航 -->
+  <nav class="bottomnav" id="bottomnav" aria-label="全局导航">
+    <button class="bn-item" data-view="home"><span>首页</span></button>
+    <button class="bn-item" data-view="codelib"><span>代码片段库</span></button>
+    <button class="bn-item" data-view="path"><span>学习路线</span></button>
+    <button class="bn-item" data-view="data"><span>数据集资料</span></button>
+  </nav>
+
+  <!-- 固定免责声明（深绿底白字，可收起） -->
+  <div class="disclaimer" id="disclaimer" role="contentinfo">
+    <span class="disc-tag">免责声明</span>
+    <span class="disc-text" id="discText">本工作台仅用于风控建模教学练习，代码不可直接用于真实信贷业务。</span>
+    <button class="disc-toggle" id="discToggle" type="button" aria-label="收起免责声明">收起</button>
+  </div>
+
+  <!-- 个性化设置弹窗 -->
+  <div class="modal-scrim" id="settingsScrim"></div>
+  <div class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-label="个性化设置">
+    <div class="modal-head">
+      <h3>个性化设置</h3>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>工作台名称</label>
+        <input type="text" id="setName" maxlength="30" placeholder="输入工作台名称" />
+      </div>
+
+      <div class="field">
+        <label>主题色</label>
+        <div class="theme-grid" id="themeGrid"><!-- JS 渲染 --></div>
+        <div class="theme-custom">
+          <span>自定义色值：</span>
+          <input type="color" id="setColor" value="#8fd3a8" />
+          <input type="text" id="setColorHex" maxlength="7" placeholder="#8fd3a8" />
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn ghost" id="settingsCancel">关闭</button>
+      <button class="btn primary" id="settingsSave">保存</button>
+    </div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+  <script>
+    // PWA 支持：仅在 http(s) 下注册 Service Worker，本地 file:// 双击打开不受影响
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>
