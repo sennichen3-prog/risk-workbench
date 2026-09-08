@@ -1,0 +1,27 @@
+{
+  "name": "金融风控建模学习工作台",
+  "short_name": "风控工作台",
+  "description": "金融风控建模学习工作台：风控建模与量化编程学习，含笔记、代码片段与数据集资料，纯本地存储。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "default",
+  "background_color": "#f0f7f0",
+  "theme_color": "#2f6b5e",
+  "lang": "zh-CN",
+  "categories": ["education", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
